@@ -6,3 +6,5 @@ Este é um projeto feito no BootCamp GoStack da Rocketseat.
 - Para iniciar o projeto, apenas digite:
 	> yarn dev
 
+- Para envir email, digite:
+  > yarn queue

@@ -45,6 +45,16 @@ class AppointmentController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
+    const checkUserIsProvider = await User.findOne({
+      where: { id: req.userId, provider: true },
+    });
+
+    if (checkUserIsProvider) {
+      return res
+        .status(401)
+        .json({ error: 'You can not create appoitment if you are provider' });
+    }
+
     const { provider_id, date } = req.body;
 
     const checkIsProvider = await User.findOne({
